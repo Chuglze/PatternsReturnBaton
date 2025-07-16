@@ -1,75 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>한지: 손으로 빚는 프랙탈 (최종 수정)</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <style>
-        :root {
-            --ui-bg: #ffffffaa;
-            --ui-border: #00000011;
-            --text-color: #5c4742;
-        }
-        html,body{height:100vh;height:100dvh;margin:0;overflow:hidden; background: #f0fcd4;}
-        body{display:grid;grid-template-rows:100dvh;font-family:system-ui,sans-serif}
-        #webcam, #canvas, .editor, #controls { grid-row: 1; grid-column: 1; width: 100%; height: 100%; }
-        #webcam { object-fit: cover; transform: scaleX(-1); opacity: 0.3; }
-        #canvas { --canvas-z-index: 1; background: transparent; touch-action: none; z-index: var(--canvas-z-index); cursor: pointer; }
-        .editor,#error{font-family:'Courier New',Courier,monospace;padding:1em; z-index: 10;}
-        .editor{color:#fefefe;tab-size:2;border:none;resize:none; background:repeating-linear-gradient(0deg,#000a,#1119,#000a .25rem);}
-        .editor:focus{outline:none}
-        .hidden{display:none!important}
-        #error{position:fixed;bottom:0;left:0;right:0;margin:0;padding:.5em 1em;color:firebrick;overflow:auto;text-wrap:pretty;background:#111; z-index: 100;}
-        #controls{position:fixed;top:1em;right:1em; width: auto; height: auto; z-index: 20;}
-        .controls{position:relative;display:flex;flex-direction: column; gap:0.5em;padding:.5em 1em;background: var(--ui-bg);border: 1px solid var(--ui-border); border-radius:4px; backdrop-filter: blur(5px); transition: background .3s;}
-        input[type="button"], input[type="checkbox"]{all:unset;opacity:.6;filter:saturate(0) invert(0.2);cursor:pointer;transition:opacity .2s ease-in-out;padding:.25em .5em}
-        input:hover{opacity:1}
-        input:disabled { opacity: 0.2; cursor: not-allowed; filter:saturate(0) invert(0.2) grayscale(1); } /* 비활성화 스타일 강화 */
-        .icon{text-align:center;line-height:1}
-        #btnWebcam::after{content: ''}
-        .info-panel { position: fixed; left: 1em; bottom: 1em; color: var(--text-color); font-size: 14px; background: var(--ui-bg); padding: 0.8em 1.2em; border-radius: 6px; border: 1px solid var(--ui-border); backdrop-filter: blur(5px); pointer-events: none; z-index: 20; transition: opacity 0.3s, background 0.3s; }
-        .info-panel.camera-on { background: rgba(120,255,120,0.25) !important; }
-        .info-panel.hand-detected { background: rgba(120,255,120,0.45) !important; }
-        #btnWebcam {
-  background: var(--ui-bg);
-  border: 1px solid var(--ui-border);
-  border-radius: 6px;
-  padding: 0.8em 1.2em;
-  font-size: 14px;
-  font-family: system-ui,sans-serif;
-  color: var(--text-color);
-  box-sizing: border-box;
-  cursor: pointer;
-  transition: background 0.3s, opacity 0.2s;
-  opacity: 0.85;
-}
-#btnWebcam:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-#btnWebcam:not(:disabled):hover {
-  opacity: 1;
-  background: #eaffea;
-}
-    </style>
-</head>
-<body>
-    <audio id="bgm" src="background-music.mp3" loop autoplay hidden></audio>
-    <div id="title-overlay" style="position:fixed;left:0;top:0;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;z-index:1000;background:#000;transition:opacity 1s;">
-        <img src="title-logo.png" alt="타이틀 로고" style="max-width:30vw;max-height:30vh;">
-        <img src="creator.png" alt="제작자" style="position:absolute;left:50%;bottom:5vh;transform:translateX(-50%);max-width:9vw;max-height:9vh;">
-    </div>
-    <video id="webcam" autoplay playsinline></video>
-    <canvas id="canvas"></canvas>
-    <!-- 중앙 하단 안내 패널로 이동 -->
-    <div id="info-panel-main" class="info-panel" style="left:50%;bottom:1em;transform:translateX(-50%);right:auto;text-align:center;">손으로 프랙탈을 빚어보세요.</div>
-    <!-- 좌하단 info-panel-status 위에 카메라 버튼 배치 -->
-    <div id="camera-btn-box" style="position:fixed;left:1em;bottom:4.5em;z-index:21;display:flex;justify-content:center;width:auto;">
-        <button id="btnWebcam" type="button" disabled>📹</button>
-    </div>
-    <div id="info-panel-status" class="info-panel" style="bottom: 1em; left: 1em; right: auto; opacity: 1;">AI 모델 로딩 & 카메라 준비...</div>
-    
-<script type="module">
 // [최신 CDN 적용]
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js';
 import { HandLandmarker, FilesetResolver } from 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22-rc.20250304/+esm';
@@ -482,8 +410,4 @@ if (btnRecordVideo) {
       btnRecordVideo.textContent = '비디오 녹화 시작';
     }
   });
-}
-
-</script>
-</body>
-</html>
+} 
