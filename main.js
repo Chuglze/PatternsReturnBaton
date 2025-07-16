@@ -377,6 +377,15 @@ window.addEventListener('DOMContentLoaded', () => {
     overlay.style.opacity = '0';
     setTimeout(() => { overlay.style.display = 'none'; }, 1000);
   }, 5000);
+
+  // 모바일 안내 메시지 일정 시간 후 사라지게
+  const infoPanelMain = document.getElementById('info-panel-main');
+  if (infoPanelMain) {
+    setTimeout(() => {
+      infoPanelMain.style.opacity = '0';
+      setTimeout(() => { infoPanelMain.style.display = 'none'; }, 1000);
+    }, 4000);
+  }
 });
 
 if (btnRecordVideo) {
