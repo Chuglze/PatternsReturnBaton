@@ -73,28 +73,4 @@ input:disabled { opacity: 0.2; cursor: not-allowed; filter:saturate(0) invert(0.
     max-width: 90vw;
     z-index: 35;
   }
-  #title-overlay {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    background: #000;
-  }
-  #title-overlay img[alt="타이틀 로고"] {
-    max-width: 80vw;
-    max-height: 20vh;
-    width: auto;
-    height: auto;
-    margin-bottom: 2vh;
-  }
-  #title-overlay img[alt="제작자"] {
-    position: static !important;
-    left: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-    max-width: 30vw;
-    max-height: 8vh;
-    margin-top: 2vh;
-    display: block;
-  }
 } 
