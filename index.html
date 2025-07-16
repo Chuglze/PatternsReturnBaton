@@ -15,10 +15,12 @@
     <video id="webcam" autoplay playsinline></video>
     <canvas id="canvas"></canvas>
     <div id="info-panel-main" class="info-panel" style="left:50%;bottom:1em;transform:translateX(-50%);right:auto;text-align:center;">손으로 프랙탈을 빚어보세요.</div>
-    <div id="camera-btn-box" style="position:fixed;left:1em;bottom:4.5em;z-index:21;display:flex;justify-content:center;width:auto;">
-        <button id="btnWebcam" type="button" disabled>📹</button>
+    <div class="mobile-status-row">
+      <div id="info-panel-status" class="info-panel">위 버튼을 눌러 카메라를 시작하세요 📹</div>
+      <div id="camera-btn-box">
+          <button id="btnWebcam" type="button" disabled>📹</button>
+      </div>
     </div>
-    <div id="info-panel-status" class="info-panel" style="bottom: 1em; left: 1em; right: auto; opacity: 1;">AI 모델 로딩 & 카메라 준비...</div>
     <script type="module" src="main.js"></script>
 </body>
 </html>
